@@ -1,0 +1,24 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# Secrets
+*.key
+*.pem
+*.crt
+*.password
+.env
+
+# Package files
+*.tar.gz
+*.tgz
