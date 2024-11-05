@@ -1,0 +1,23 @@
+defaultSettings:
+  defaultReplicaCount: 1
+  defaultDataPath: /storage/longhorn
+  createDefaultDiskLabeledNodes: true
+
+persistence:
+  defaultClass: true
+  reclaimPolicy: Retain
+  defaultClassReplicaCount: 1
+
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  host: longhorn.domain.com  # TODO: Update domain before deployment
+  tls: true
+  tlsSecret: longhorn-tls
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    traefik.ingress.kubernetes.io/router.middlewares: "longhorn-system-auth@kubernetescrd"
+
+service:
+  ui:
+    type: ClusterIP
