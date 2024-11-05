@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: grafana
-          image: grafana/grafana:latest
+          image: grafana/grafana:10.1.2
           ports:
             - containerPort: 3000
               name: http-grafana
@@ -69,7 +69,7 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
-    - host: grafana.your-domain.com  #todo:add domain
+  - host: grafana.domain.com  # TODO: Update domain before deployment
     http:
       paths:
       - path: /
@@ -81,5 +81,5 @@ spec:
               number: 3000
   tls:
   - hosts:
-    - grafana.your-domain.com
+    - grafana.domain.com
     secretName: grafana-tls
